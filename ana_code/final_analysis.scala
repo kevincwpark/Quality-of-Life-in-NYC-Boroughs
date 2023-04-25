@@ -1,6 +1,3 @@
-//Start Spark REPL
-spark-shell --deploy-mode client
-
 val water_qualityRDD = sc.textFile("water_quality.csv")
 val waterHead = water_qualityRDD.first()
 val waterNoHeader = water_qualityRDD.filter(line => !line.equals(waterHead))
