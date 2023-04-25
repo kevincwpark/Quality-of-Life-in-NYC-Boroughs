@@ -30,7 +30,7 @@ val emsSelectedColumnsDF = emsCapitalDF.select("zipCode", "borough", "callType")
 emsSelectedColumnsDF.show(20)
 
 // Write to HDFS
-emsSelectedColumnsDF.write
-  .option("header", "true")
-  .option("sep", ",")
-  .csv("hdfs://nyu-dataproc-m/user/cp3111_nyu_edu/ems_clean2.csv")
+// emsSelectedColumnsDF.write
+//   .option("header", "true")
+//   .option("sep", ",")
+//   .csv("hdfs://nyu-dataproc-m/user/cp3111_nyu_edu/ems_clean2.csv")
