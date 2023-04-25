@@ -1,0 +1,17 @@
+val EMS_RDD = sc.textFile("ems_incident_dispatch_data.csv")
+val emsHead = EMS_RDD.first()
+val emsNoHeader = EMS_RDD.filter(line => !line.equals(emsHead))
+val emsColumnsRDD = emsNoHeader.map(line => line.split(","))
+case class EMSIncident(zip: String, borough: String)
+val emsDF = emsColumnsRDD.map(arr => EMSIncident(arr(21), arr(19).toUpperCase())).toDF()
+val emsSelectedColumnsDF = emsDF.select("zip", "borough")
+val emsFilteredDF = emsSelectedColumnsDF.filter($"zip".rlike("^[0-9]{5}$") && $"borough".isNotNull)
+val emsFilteredDF2 = emsFilteredDF.withColumn("borough", when(col("borough") === "RICHMOND / STATEN ISLAND", " STATEN ISLAND").otherwise(col("borough")))
+val emsFilteredDF3 = emsFilteredDF2.withColumn("borough", when(col("borough") === "STATEN ISLAND", " STATEN ISLAND").otherwise(col("borough")))
+val emsFilteredDF4 = emsFilteredDF3.withColumn("borough", when(col("borough") === "MANHATTAN", " MANHATTAN").otherwise(col("borough")))
+val emsFilteredDF5 = emsFilteredDF4.withColumn("borough", when(col("borough") === "BRONX", " BRONX").otherwise(col("borough")))
+val emsFilteredDF6 = emsFilteredDF5.withColumn("borough", when(col("borough") === "QUEENS", " QUEENS").otherwise(col("borough")))
+val finalemsDF = emsFilteredDF6.withColumn("borough", when(col("borough") === "BROOKLYN", " BROOKLYN").otherwise(col("borough")))
+val finalemsRDD = finalemsDF.rdd
+finalemsDF.show(20)
+// Every EMS Incident record with its zipcode and borough
