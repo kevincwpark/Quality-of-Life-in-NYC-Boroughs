@@ -6,8 +6,8 @@ The directory structure of the project is as follows:
 
 - `/ana_code`: contains the final and completed build of the source code, all pieced together and ready to run
 - `/data_ingest`: contains code and commands for data ingestion
-- `/etl_code`: contains code from the early invidiual ETL/cleaning step, with subdirectories for each team member
-- `/profiling_code`: contains code from the early individual profiling step, with subdirectories for each team member
+- `/etl_code`: contains code from the early invidiual ETL/cleaning step, subdirectories for each team member
+- `/profiling_code`: contains code from the early individual profiling step, subdirectories for each team member
 - `/test_code`: directory containing test code and unused code
 - `/screenshots`: contains screenshots that show the final analysis running through each step
 - `README.md`: readme file describing the project and how to build and run the code
