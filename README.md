@@ -37,7 +37,7 @@ The directory structure of the project is as follows:
 - [EMS Incident Dispatch Data](https://data.cityofnewyork.us/Public-Safety/EMS-Incident-Dispatch-Data/76xm-jjuj)
 - [Compliance at-the-tap Lead and Copper Data](https://data.cityofnewyork.us/Environment/Compliance-at-the-tap-Lead-and-Copper-Data/3wxk-qa8q)
 - [Revised Notice of Property Value (RNOPV)](https://data.cityofnewyork.us/City-Government/Revised-Notice-of-Property-Value-RNOPV-/8vgb-zm6e)
-<br>
+
 The input data used in this project can be found at `final_project_18` under the files named `water_quality.csv`, `ems_incident_dispatch_data.csv`, and `Revised_Notice_of_Property_Value__RNOPV_.csv`. Each respective file was retrieved from NYC Open Data.
 
 
