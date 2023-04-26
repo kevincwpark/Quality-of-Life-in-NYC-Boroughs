@@ -1,5 +1,5 @@
 # Quality-of-Life-in-NYC-Boroughs
-
+This program will assemble data regarding water quality, frequency of EMS dispatches, and property valuation in each of NYC’s boroughs to determine which has the best quality of life and inform residents of the best areas to live in. Poor water quality can lead to various health issues among residents. A higher property valuation suggests that the community is desirable to live in, which can be attributed to factors such as a low crime rate, good schools, and well-maintained infrastructure. Finally, high frequency of EMS dispatch could suggest a higher prevalence of medical emergencies, accidents, or other dangerous incidents. This project aims to quantify and compare these levels, stratifying based on the zipcodes which each dataset contains.
 ## Directory Structure
 
 The directory structure of the project is as follows:
