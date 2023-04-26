@@ -14,8 +14,8 @@ The directory structure of the project is as follows:
 
 ## File Description
 ### Non-specific files
-- `/ana_code/final_analysis.scala`: Reads data from three csv files ("water_quality.csv", "ems_incident_dispatch_data.csv", "Revised_Notice_of_Property_Value__RNOPV_.csv"), cleans and processes the data, and then joins them based on zip code and borough. It calculates the average lead and copper level for each zip code and borough from water quality data, and the count of emergency incidents in each zip code and borough from EMS data. Finally, it extracts the property value and borough information from property value data and joins all three datasets based on zip code and borough, and prints the resulting dataframe.
-- `/data_ingest/Datasets_Ingestion.scala`: 
+- `/ana_code/final_analysis.scala`: Reads data from the three csv files (`water_quality.csv`, `ems_incident_dispatch_data.csv`, `Revised_Notice_of_Property_Value__RNOPV_.csv`), cleans and processes the data, and then joins them based on zip code and borough. It calculates the average lead and copper level for each zip code and borough from water quality data, and the count of emergency incidents in each zip code and borough from EMS data. Finally, it extracts the property value and borough information from property value data and joins all three datasets based on zip code and borough, and prints the resulting dataframe.
+- `/data_ingest/Datasets_Ingestion.scala`: Reads data from the three csv files (`water_quality.csv`, `ems_incident_dispatch_data.csv`, `Revised_Notice_of_Property_Value__RNOPV_.csv`) to provide useful information about them and process them for the normalization steps in the `final_analysis.scala`.
 
 ### Kevin (cp3111) specific files
 - `/etl_code/cp3111/Code_Cleaning (Initial).scala`: Initial dataset cleaning for the EMS dispatch dataset: removes the header row, splits each row into an array of columns, converts the RDD to a DataFrame, filters out invalid and null zip codes and null boroughs, converts boroughs to all capital letters, and selects only the needed columns.
@@ -25,7 +25,7 @@ The directory structure of the project is as follows:
 
 ### Irvin (ic2184) specific files
 - `/etl_code/ic2184/cleaning_water.scala`: Initial dataset cleaning for the water quality dataset: removes the header row, splits each row into an array of columns, converts the RDD to a DataFrame, converts boroughs to all capital letters, relabels all boroughs falsely named "NEW YORK" into one named "MANHATTAN", filters out rows corresponding to outliers in lead and copper data, and selects only the columns needed for the analytic.
-- `/profiling_code/ic2184/profiling_water.scala`: Takes the dataframe from the initial cleaning steps to find and print the distinct values in each column, calculates the mean, median, and most frequently occurring lead and copper values.
+- `/profiling_code/ic2184/profiling_water.scala`: Takes the dataframe from the initial cleaning steps to count the number of partitions, finds and counts the number of entries corresponding to some arbitrary zipcode chosen to be "11209", finds and prints the distinct values in each column, and calculates the mean, median, and most frequently occurring lead and copper values.
 
 ### Ricardo (rpe2842) specific files
 - `/etl_code/rpe2842/Property_Val_Clean.scala`: Initial dataset cleaning for the Property Value which removes the header row. Then it creates a Spark DataFrame with a subset of the columns from the file (specifically, columns 29, 30, and 12) by filtering for rows with the proper format and creating a case class for the data. The DataFrame is then cleaned by standardizing the borough names, selecting only certain columns, and converting to an RDD for output. Finally, it prints out the contents of the RDD using println. 
