@@ -1,6 +1,3 @@
-//Start Spark REPL
-spark-shell --deploy-mode client
-
 //Scala script to create first RDD using Spark Context
 val EMS_RDD = sc.textFile("ems_incident_dispatch_data.csv")
 

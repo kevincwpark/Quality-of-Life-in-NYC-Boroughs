@@ -1,6 +1,5 @@
 # Quality-of-Life-in-NYC-Boroughs
 
-
 ## Directory Structure
 
 The directory structure of the project is as follows:
