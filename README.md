@@ -35,11 +35,15 @@ The directory structure of the project is as follows:
 
 ## Data
 The input data used in this project can be found at `final_project_18` under the files named `water_quality.csv`, `ems_incident_dispatch_data.csv`, and `Revised_Notice_of_Property_Value__RNOPV_.csv`. Each respective file was retrieved from NYC Open Data.
+- [EMS Incident Dispatch Data](https://data.cityofnewyork.us/Public-Safety/EMS-Incident-Dispatch-Data/76xm-jjuj)
+- [Compliance at-the-tap Lead and Copper Data](https://data.cityofnewyork.us/Environment/Compliance-at-the-tap-Lead-and-Copper-Data/3wxk-qa8q)
+- [Revised Notice of Property Value (RNOPV)](https://data.cityofnewyork.us/City-Government/Revised-Notice-of-Property-Value-RNOPV-/8vgb-zm6e)
 
 ## Build and Run Instructions
 1. Clone the repository to your local machine.
-2. Navigate to the `/ana_code` directory and run the source code for the analytics.
-3. Navigate to the `/screenshots` directory to view screenshots of the analytics running at each step.
-4. Results of the analytics can be found in the output of the source code - in hdfs directory named `hdfs://nyu-dataproc-m/user/ic2184_nyu_edu/final_project_18` under the file named `results.csv`. This directory has been shared with the requested indivduals in class: cr3152, cl6405, and adm209.
+2. Navigate to the hdfs directory named `hdfs://nyu-dataproc-m/user/ic2184_nyu_edu/final_project_18` to access the 3 CSV input data files mentioned above (if access is shared). Otherwise, download and upload aforementioned CSV files from NYC Open Data into HDFS - may need to rename CSV files to run programs directly.
+3. Navigate to the `/ana_code` directory and run the source code for the analytics.
+4. Navigate to the `/screenshots` directory to view screenshots of the analytics running at each step.
+5. Results of the analytics can be found in the output of the source code - in HDFS directory named `hdfs://nyu-dataproc-m/user/ic2184_nyu_edu/final_project_18` under the file named `results.csv`. This directory has been shared with the requested indivduals in class: cr3152, cl6405, and adm209.
 
 Note: Specific instructions for running the code and commands may vary depending on the specific Big Data tools and cluster being used.
