@@ -40,6 +40,6 @@ The input data used in this project can be found at `final_project_18` under the
 1. Clone the repository to your local machine.
 2. Navigate to the `/ana_code` directory and run the source code for the analytics.
 3. Navigate to the `/screenshots` directory to view screenshots of the analytics running at each step.
-4. Results of the analytics can be found in the output of the source code - in hdfs directory named `hdfs://nyu-dataproc-m/user/ic2184_nyu_edu/final_project_18` under the file named `results.csv`. This directory has been shared with the requested indivduals: cr3152, cl6405, and adm209.
+4. Results of the analytics can be found in the output of the source code - in hdfs directory named `hdfs://nyu-dataproc-m/user/ic2184_nyu_edu/final_project_18` under the file named `results.csv`. This directory has been shared with the requested indivduals in class: cr3152, cl6405, and adm209.
 
 Note: Specific instructions for running the code and commands may vary depending on the specific Big Data tools and cluster being used.
