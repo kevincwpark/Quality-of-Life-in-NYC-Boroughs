@@ -20,10 +20,13 @@ val waterSelectedColumnsDF = waterDF.select("Borough", "ZipCode", "LeadLevel", "
 
 //ADDITIONAL CLEANING
 //CONVERT NEW YORK BOROUGH NAME INTO MANHATTAN
-val fixedDF = waterSelectedColumnsDF.withColumn("Borough", when(col("Borough") === "NEW YORK", "MANHATTAN").otherwise(col("Borough")))
+val finalWaterDF = waterSelectedColumnsDF.withColumn("Borough", when(col("Borough") === "NEW YORK", "MANHATTAN").otherwise(col("Borough")))
+
+//REMOVE ZIPCODES CORRESPONDING TO OUTLIERS
+val filteredDF = finalWaterDF.filter($"zip" =!= 11358 && $"zip" =!= 11421 && $"zip" =!= 11225 && $"zip" =!= 11428 && $"zip" =!= 11433)
 
 //DISPLAY NEW DATAFRAME
-fixedDF.show()
+filteredDF.show()
 
 
 
@@ -60,10 +63,6 @@ val zipLeadCopperSumRDD = zipLeadCopperRDD.reduceByKey((x, y) => (x._1 + y._1, x
 
 //DISPLAY SUMMED KEY-VALUE PAIR
 zipLeadCopperSumRDD.toDF().show()
-
-
-//CONVERT DATAFRAME TO RDD FOR EASIER COUNTING DISTINCT VALUES
-val fixedRDD = fixedDF.rdd
 
 //COUNTING DISTINCT BOROUGHS 
 val countDistinctBorough = NoHeader.map(line => {
@@ -136,10 +135,10 @@ println(avgCopper)
 
 
 //GET MEDIAN OF LEAD DATA WITH FUNCTION
-val leadMedian = fixedDF.stat.approxQuantile("LeadLevel", Array(0.5), 0.0)(0)
+val leadMedian = filteredDF.stat.approxQuantile("LeadLevel", Array(0.5), 0.0)(0)
 
 //GET MEDIAN OF COPPER DATA WITH FUNCTION
-val copperMedian = fixedDF.stat.approxQuantile("CopperLevel", Array(0.5), 0.0)(0)
+val copperMedian = filteredDF.stat.approxQuantile("CopperLevel", Array(0.5), 0.0)(0)
 
 
 //GET MODE OF LEAD DATA
